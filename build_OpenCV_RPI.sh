@@ -18,7 +18,7 @@ sudo apt-get -y install libprotobuf-dev libgoogle-glog-dev libgflags-dev
 sudo apt-get -y install protobuf-compiler
 sudo apt-get -y install qt5-default
 # Needed for the RPI5 to run rpicam-hello.cpp in rpicam-apps
-sudo apt install libevent-dev
+sudo apt -y install libevent-dev
 
 cd ~
 git clone --depth=1 https://github.com/opencv/opencv.git
