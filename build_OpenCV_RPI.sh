@@ -63,3 +63,5 @@ make clean
 sudo apt-get -y update
 sudo rm -rf ~/opencv
 sudo rm -rf ~/opencv_contrib
+
+python3 -c "import cv2; print(cv2.__version__); print(cv2.getBuildInformation())"
