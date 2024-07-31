@@ -16,13 +16,22 @@ sudo apt-get install -y libgstreamer-plugins-bad1.0-dev \
 
 # Clone OpenCV repository
 cd ~
+# git clone https://github.com/opencv/opencv.git
+# cd opencv
+# git checkout 4.9.0
+
+cd ~
 git clone https://github.com/opencv/opencv.git
-cd opencv
-git checkout 4.9.0
+git clone https://github.com/opencv/opencv_contrib.git
+
 
 # Create build directory
-mkdir build
-cd build
+# mkdir build
+# cd build
+
+# Create a build directory
+mkdir -p ~/opencv/build
+cd ~/opencv/build
 
 # Configure build with GStreamer support
 PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
@@ -38,6 +47,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D BUILD_opencv_python3=YES \
       -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 \
       -D OPENCV_PYTHON3_INSTALL_PATH=/usr/local/lib/python${PYTHON_VERSION}/dist-packages \
+      -D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
+      -D PYTHON3_LIBRARY=$(python3 -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
       -D OPENCV_ENABLE_NONFREE=YES \
       -D INSTALL_PYTHON_EXAMPLES=NO ..
 
