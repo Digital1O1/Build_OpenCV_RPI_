@@ -5,7 +5,8 @@ sudo apt-get update
 sudo apt-get install -y build-essential cmake git libgtk2.0-dev pkg-config \
                         libavcodec-dev libavformat-dev libswscale-dev \
                         libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-                        python3-dev python3-numpy libx264-dev libjpeg-dev
+                        python3-dev python3-numpy libx264-dev libjpeg-dev\
+                        libevent-dev libcamera-dev
 
 # Install remaining GStreamer plugins
 sudo apt-get install -y libgstreamer-plugins-bad1.0-dev \
